@@ -8,6 +8,17 @@
     * [How to add a new app to Django project?](#How-to-add-a-new-app-to-Django-project)
     * [How to run Django server?](#How-to-run-Django-server)
     * [How to upload your work to your Repo?](#How-to-upload-your-work-to-your-Repo)
+    * [Steps to do after starting a new app](#Steps-to-do-after-starting-a-new-app)
+    * [Common .gitignore content](#Common-.gitignore-content)
+* [Code Samples](#code-samples)
+    * [Python](#python)
+        * [Redirect to another page](#Redirect-to-another-page)
+    * [HTML](#html)
+        * [Link to another page](#Link-to-another-page)
+        * [Add CSRF token to html form](#Add-CSRF-token-to-html-form)
+        * [Sample layout page](#Sample-layout-page)
+        * [Import layout page](#Import-layout-page)
+        
 
 # Overview
 This repo is for tracking my Django learning path.
@@ -39,3 +50,68 @@ python3 manage.py runserver
 1. Go to Pull Requests and review your code.
 1. If your changes got approved then merge it to the main branch.
 1. Delete the used branch once the feature you're working on is finished.
+
+## Steps to do after starting a new app
+1. Add the app name to `INSTALLED_APPS` list in `settings.py` file.
+1. Create `urls.py` file inside the new app and add `urlpatterns` list containing the paths for your app. Also, add the variable `app_name = "APP_NAME"` to avoid name collisions.
+1. In the main `urls.py` file for the project, include the urls for the new app. (e.g `path('APP_NAME/', include('APP_NAME.urls')),`)
+1. If the app will have html content, create `templates/APP_NAME` folder to add the html files in it.
+1. Also, you can create `static/APP_NAME` for static files such as `css` and `js` files and images.
+
+## Common .gitignore content
+```
+**/__pycache__
+**/migrations
+.vscode
+db.sqlite3
+```
+
+# Code Samples
+## Python
+### Redirect to another page
+```
+from django.http import HttpResponseRedirect
+from django.urls import reverse
+
+return HttpResponseRedirect(reverse('APP_NAME:PATH_NAME'))
+```
+Alternativly:
+```
+from django.shortcuts import redirect
+return redirect('APP_NAME:PATH_NAME')
+```
+
+## HTML
+### Link to another page
+```
+<a href="{% url 'APP_NAME:PATH_NAME'%}">Some Text</a>
+```
+
+### Add CSRF token to html form
+```
+<form action="{% url 'APP_NAME:PATH_NAME'%}" method="post">
+    {% csrf_token %}
+    <input type="submit">
+</form>
+```
+### Sample layout page
+```
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Title</title>
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+    </body>
+</html>
+```
+
+### Import layout page
+```
+{% extends "tasks/layout.html" %}
+
+{% block body %}
+    HTML CONTENT
+{% endblock %}
+```
