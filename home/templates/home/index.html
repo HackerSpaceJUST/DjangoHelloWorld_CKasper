@@ -4,6 +4,13 @@
         <title>Home</title>
     </head>
     <body>
-        <h1>Welcome to the home page!!!!!</h1>
+        <h1>Applications</h1>
+        <ul>
+            <li><a href="{% url 'home:index' %}">Home</a></li>
+            <li><a href="{% url 'newyear:index' %}">New Year</a></li>
+            <li><a href="{% url 'simple_app:index' %}">Simple App</a></li>
+            <li><a href="{% url 'tasks:index' %}">Tasks (TODO List)</a></li>
+            <li><a href="{% url 'flights:index' %}">Flights</a></li>
+        </ul>
     </body>
 </html>
