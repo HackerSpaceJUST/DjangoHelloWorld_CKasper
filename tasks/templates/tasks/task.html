@@ -1,0 +1,17 @@
+{% extends "tasks/layout.html" %}
+
+{% block body %}
+        <h1>Task #{{ task.id }} information</h1>
+        <ul>
+            <li>Title: {{ task.title }}</li>
+            <li>Is completed: {% if task.completed %} Yes {% else %} No {% endif %}</li>
+            <li>Creation Date: {{ task.creation_date }}</li>
+        </ul>
+        <h2>Update task information</h2>
+        <form method="POST" action="{% url 'tasks:update' task.id %}">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit">
+        </form>
+        <a href="{% url 'tasks:index' %}">View tasks</a>
+{% endblock %}
