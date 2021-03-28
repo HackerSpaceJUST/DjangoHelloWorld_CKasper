@@ -4,12 +4,16 @@
 * [Table of Contents](#Table-of-Contents)
 * [Overview](#overview)
 * [Instructions](#instructions)
-    * [How to create a Django project?](#How-to-create-a-Django-project)
-    * [How to add a new app to Django project?](#How-to-add-a-new-app-to-Django-project)
-    * [How to run Django server?](#How-to-run-Django-server)
-    * [How to upload your work to your Repo?](#How-to-upload-your-work-to-your-Repo)
-    * [Steps to do after starting a new app](#Steps-to-do-after-starting-a-new-app)
-    * [Common .gitignore content](#Common-.gitignore-content)
+    * [Django](#django)
+        * [Create a Django project](#create-a-Django-project)
+        * [Add a new app to Django project](#add-a-new-app-to-Django-project)
+        * [Run Django server](#run-Django-server)
+        * [Migrate database](#migrate-database)
+        * [Steps to do after starting a new app](#Steps-to-do-after-starting-a-new-app)
+    * [Git](#git)
+        * [Add description to your commit message](#add-description-to-your-commit-message)
+        * [Upload your work to your Repo](#upload-your-work-to-your-Repo)
+        * [Common .gitignore content](#Common-.gitignore-content)
 * [Code Samples](#code-samples)
     * [Python](#python)
         * [Redirect to another page](#Redirect-to-another-page)
@@ -18,28 +22,46 @@
         * [Add CSRF token to html form](#Add-CSRF-token-to-html-form)
         * [Sample layout page](#Sample-layout-page)
         * [Import layout page](#Import-layout-page)
-        
 
 # Overview
 This repo is for tracking my Django learning path.
 
 # Instructions
-## How to create a Django project?
+## Django
+### Create a Django project
 ```
 django-admin startproject PROJECT_NAME
 ```
 
-## How to add a new app to Django project?
+### Add a new app to Django project
 ```
 python3 manage.py startapp APP_NAME
 ```
 
-## How to run Django server?
+### Run Django server
 ```
 python3 manage.py runserver
 ```
 
-## How to upload your work to your Repo?
+### Migrate database
+```
+python3 manage.py migrate
+```
+
+### Steps to do after starting a new app
+1. Add the app name to `INSTALLED_APPS` list in `settings.py` file.
+1. Create `urls.py` file inside the new app and add `urlpatterns` list containing the paths for your app. Also, add the variable `app_name = "APP_NAME"` to avoid name collisions.
+1. In the main `urls.py` file for the project, include the urls for the new app. (e.g `path('APP_NAME/', include('APP_NAME.urls')),`)
+1. If the app will have html content, create `templates/APP_NAME` folder to add the html files in it.
+1. Also, you can create `static/APP_NAME` for static files such as `css` and `js` files and images.
+
+## Git
+### Add description to your commit message
+```
+git commit -m "Commit message" -m "Commit description line #1" -m "Commit description line #2"
+```
+
+### Upload your work to your Repo
 1. `git clone https://github.com/HackerSpaceJUST/<repo>`
 1. Make a branch with a clear name for the feature you want to add: `git checkout -b BRANCH_NAME`. If the branch is already exist, then no need for the `-b` in the command.
 1. Modify your changes on your local device.
@@ -51,14 +73,7 @@ python3 manage.py runserver
 1. If your changes got approved then merge it to the main branch.
 1. Delete the used branch once the feature you're working on is finished.
 
-## Steps to do after starting a new app
-1. Add the app name to `INSTALLED_APPS` list in `settings.py` file.
-1. Create `urls.py` file inside the new app and add `urlpatterns` list containing the paths for your app. Also, add the variable `app_name = "APP_NAME"` to avoid name collisions.
-1. In the main `urls.py` file for the project, include the urls for the new app. (e.g `path('APP_NAME/', include('APP_NAME.urls')),`)
-1. If the app will have html content, create `templates/APP_NAME` folder to add the html files in it.
-1. Also, you can create `static/APP_NAME` for static files such as `css` and `js` files and images.
-
-## Common .gitignore content
+### Common .gitignore content
 ```
 **/__pycache__
 **/migrations
@@ -75,7 +90,7 @@ from django.urls import reverse
 
 return HttpResponseRedirect(reverse('APP_NAME:PATH_NAME'))
 ```
-Alternativly:
+Alternatively:
 ```
 from django.shortcuts import redirect
 return redirect('APP_NAME:PATH_NAME')
