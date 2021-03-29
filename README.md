@@ -47,12 +47,12 @@ python3 manage.py runserver
 
 ### Migrate database
 ```
-python3 manage.py migrate
+python3 manage.py migrate APP_NAME
 ```
 
 ### Make database migrations
 ```
-python3 manage.py makemigrations
+python3 manage.py makemigrations APP_NAME
 ```
 
 ### Enable admin for an application
