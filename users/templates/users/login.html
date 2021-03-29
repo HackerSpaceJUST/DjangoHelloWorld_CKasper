@@ -10,4 +10,6 @@
         <input type="password" name="password" placeholder="Password">
         <input type="submit" value="Login">
     </form>
+    <a href="{% url 'users:register' %}">Create a new account. (Register)</a> <br/>
+    <a href="{% url 'users:signup' %}">Create a new account. (Sign up)</a>
 {% endblock %}
