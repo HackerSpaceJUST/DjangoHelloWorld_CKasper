@@ -1,10 +1,12 @@
 {% extends "users/layout.html" %}
 
 {% block body %}
-    <h1> Welcome, {{ request.user.first_name }} </h1>
+    <h1> Welcome, {{ request.user.username }} </h1>
     <ul>
         <li>Username: {{ request.user.username }}</li>
-        <li>email: {{ request.user.email }}</li>
+        {% if request.user.email %}<li>email: {{ request.user.email }}</li>{% endif %}
+        {% if request.user.first_name and request.user.last_name %}<li>Name: {{ request.user.first_name }} {{ request.user.last_name }}</li>{% endif %}
     </ul>
+    <p><strong>Total registered users: </strong> {{ count }}</p>
     <a href="{% url 'users:logout' %}"> Logout </a>
 {% endblock %}
