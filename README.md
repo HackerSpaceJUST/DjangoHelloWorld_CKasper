@@ -8,8 +8,8 @@
         * [Create a Django project](#create-a-Django-project)
         * [Add a new app to Django project](#add-a-new-app-to-Django-project)
         * [Run Django server](#run-Django-server)
-        * [Migrate database](#migrate-database)
         * [Make database migrations](#Make-database-migrations)
+        * [Migrate database](#migrate-database)
         * [Enable admin for an application](#enable-admin-for-an-application)
         * [Steps to do after starting a new app](#Steps-to-do-after-starting-a-new-app)
     * [Git](#git)
@@ -45,14 +45,13 @@ python3 manage.py startapp APP_NAME
 python3 manage.py runserver
 ```
 
-### Migrate database
-```
-python3 manage.py migrate APP_NAME
-```
-
 ### Make database migrations
 ```
 python3 manage.py makemigrations APP_NAME
+```
+### Migrate database
+```
+python3 manage.py migrate
 ```
 
 ### Enable admin for an application
