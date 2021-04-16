@@ -12,10 +12,14 @@
         * [Migrate database](#migrate-database)
         * [Enable admin for an application](#enable-admin-for-an-application)
         * [Steps to do after starting a new app](#Steps-to-do-after-starting-a-new-app)
+        * [Connect MySQL DB](#connect-mysql-db)
     * [Git](#git)
         * [Add description to your commit message](#add-description-to-your-commit-message)
         * [Upload your work to your Repo](#upload-your-work-to-your-Repo)
         * [Common .gitignore content](#Common-.gitignore-content)
+    * [MySQL](#mysql)
+        * [Install MySQL](#install-mysql)
+        * [Fix 'Access denied for user 'root'@'localhost'](#Fix-'Access-denied-for-user-'root'@'localhost')
 * [Code Samples](#code-samples)
     * [Python](#python)
         * [Redirect to another page](#Redirect-to-another-page)
@@ -71,6 +75,21 @@ admin.site.register(MODEL2)
 1. If the app will have html content, create `templates/APP_NAME` folder to add the html files in it.
 1. Also, you can create `static/APP_NAME` for static files such as `css` and `js` files and images.
 
+### Connect MySQL DB
+In `settings.py` file, change the `DATABASES` variable to the following:
+```
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'DB_SCHEMA_NAME',
+        'USER': 'DB_USER',
+        'PASSWORD': 'DB_PASSWORD',
+        'HOST': 'localhost',
+        'PORT': '3306',
+    }
+}
+```
+
 ## Git
 ### Add description to your commit message
 ```
@@ -96,6 +115,16 @@ git commit -m "Commit message" -m "Commit description line #1" -m "Commit descri
 .vscode
 *.sqlite3
 ```
+
+## MySQL
+### Install MySQL
+* `sudo apt-get install libmysqlclient-dev` (For `mysql_config`)
+* `sudo apt-get install mysql-server`
+* `python3 -m pip install mysqlclient`
+
+### Fix 'Access denied for user 'root'@'localhost'
+* `sudo mysql`
+* `ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'YOUR_PASSWORD';`
 
 # Code Samples
 ## Python
