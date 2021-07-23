@@ -1,35 +1,4 @@
-# DjangoHelloWorld_CKasper
-
-# Table of Contents
-* [Table of Contents](#Table-of-Contents)
-* [Overview](#overview)
-* [Instructions](#instructions)
-    * [Django](#django)
-        * [Create a Django project](#create-a-Django-project)
-        * [Add a new app to Django project](#add-a-new-app-to-Django-project)
-        * [Run Django server](#run-Django-server)
-        * [Make database migrations](#Make-database-migrations)
-        * [Migrate database](#migrate-database)
-        * [Enable admin for an application](#enable-admin-for-an-application)
-        * [Steps to do after starting a new app](#Steps-to-do-after-starting-a-new-app)
-        * [Connect MySQL DB](#connect-mysql-db)
-    * [Git](#git)
-        * [Add description to your commit message](#add-description-to-your-commit-message)
-        * [Upload your work to your Repo](#upload-your-work-to-your-Repo)
-        * [Common .gitignore content](#Common-.gitignore-content)
-    * [MySQL](#mysql)
-        * [Install MySQL](#install-mysql)
-        * [Fix 'Access denied for user 'root'@'localhost'](#Fix-'Access-denied-for-user-'root'@'localhost')
-* [Code Samples](#code-samples)
-    * [Python](#python)
-        * [Redirect to another page](#Redirect-to-another-page)
-    * [HTML](#html)
-        * [Link to another page](#Link-to-another-page)
-        * [Add CSRF token to html form](#Add-CSRF-token-to-html-form)
-        * [Sample layout page](#Sample-layout-page)
-        * [Import layout page](#Import-layout-page)
-
-# Overview
+# Omari_DjangoLearning
 This repo is for tracking my Django learning path.
 
 # Instructions
